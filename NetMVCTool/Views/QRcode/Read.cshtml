@@ -1,0 +1,33 @@
+﻿@model NetMVCTool.Models.QRCodeModel
+@{
+    ViewBag.Title = "Read";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Read QRCode</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QRCodeImagePath)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.QRCodeImagePath)" alt="Image" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QRCodeText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QRCodeText)
+        </dd>
+
+    </dl>
+</div>
+
+
