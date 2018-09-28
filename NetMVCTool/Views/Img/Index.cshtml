@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>驗證碼測試</h2>
+<div><input id="VerifyCode" type="text" placeholder="輸入驗證碼" /></div><br />
+<div><img id="captcha" src="@Url.Action("CreateVerifyCode","Img")" /></div>
+
+
+<div class="refresh"><a href="javascript:freshCode()"><img src="https://image.mycard520.com/globalmycard/images/refresh_icon.png" /></a></div>
+@section css{
+    <style>
+        #captcha {
+        width:100%;
+        max-width:85px;
+        max-height:46px;
+        vertical-align:middle;
+        top:50%;
+        transform:translateY(-50%);
+        
+        }
+
+    </style>
+    
+    
+    }
+
+@section scripts{
+    <script>
+
+        function freshCode() {
+            document.getElementById("captcha").src = "@Url.Action("CreateVerifyCode", "Img")?" + Math.random();
+            document.getElementById("VerifyCode").value = '';
+        }
+
+    </script>
+    
+    
+    }

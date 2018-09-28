@@ -201,10 +201,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\ImgController.cs" />
     <Compile Include="Controllers\QRcodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\apimodel.cs" />
     <Compile Include="Models\QRcodeExtension.cs" />
     <Compile Include="Models\QRCodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,6 +251,9 @@
     <Content Include="Views\QRcode\Demo.cshtml" />
     <Content Include="Views\QRcode\Read.cshtml" />
     <Content Include="Views\QRcode\APIDemo.cshtml" />
+    <Content Include="Views\API\Index.cshtml" />
+    <Content Include="Views\Img\Index.cshtml" />
+    <Content Include="Views\Img\CreateVerifyCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

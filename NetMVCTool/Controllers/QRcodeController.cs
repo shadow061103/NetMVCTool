@@ -38,6 +38,7 @@ namespace NetMVCTool.Controllers
                 Directory.CreateDirectory(folderPath);
             }
 
+            //產qrcode
             var barcodeWriter = new BarcodeWriter();
             barcodeWriter.Format = BarcodeFormat.QR_CODE;
             var result = barcodeWriter.Write(qrcodeText);
