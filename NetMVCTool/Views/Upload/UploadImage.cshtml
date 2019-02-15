@@ -1,0 +1,45 @@
+﻿@using NetMVCTool.Controllers
+@{
+    ViewBag.Title = "UploadImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>圖片上傳</h2>
+
+<form action="@Url.Action("UploadImage", "Upload")" method="post" enctype = "multipart/form-data">
+   
+    <input type="file" accept=".png, .jpg, .jpeg" name="File" id="File"/>
+    <input type="submit" value="上傳" />
+
+    @{ 
+        byte[] photo = TempData["Data"] == null?null: TempData["Data"] as byte[];
+        string imageData = null;
+        if (photo != null)
+        {
+            
+            string base64 = Convert.ToBase64String(photo);
+            imageData = string.Format("data:image/gif;base64,{0}", base64);
+        }
+
+    }
+    <br/>
+    
+    <img src="@imageData" />
+    <!--另一種顯示圖片方法 functions-->
+    <img src="@DisplayImage(photo)" />
+
+    @Html.DisplayImage(photo, "")
+</form>
+
+@functions{
+    public string DisplayImage(byte[] imageData) {
+        string src = string.Empty;
+        if (imageData != null)
+        {
+            string base64 = Convert.ToBase64String(imageData);
+            src = string.Format("data:image/gif;base64,{0}", base64);
+        }
+        return src;
+
+    }
+}
